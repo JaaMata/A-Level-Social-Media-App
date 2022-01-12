@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block head %}
+<title>Resend Verification Email</title>
+{% endblock %}
+{% block body %}
+    <form method="post">
+    {% csrf_token%}
+    {{ form.as_p }}
+        {% if error %}
+            <p class="errors">The password or username you have entered do not match.</p>
+        {% endif %}
+        {% if active %}
+            <p class="errors">The account you have entered is already active so no email is needed. Click <a href="{% url 'home' %}">here</a> to be redirected to the home page</p>
+        {% endif %}
+        <button type="submit">Resend Email</button>
+    </form>
+{% endblock %}
+{% block javascript %}
+
+{% endblock %}

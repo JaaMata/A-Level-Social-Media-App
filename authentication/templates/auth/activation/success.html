@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block head %}
+<title>Your acount is activated</title>
+{% endblock %}
+{% block body %}
+<h1>That all,</h1>
+    <p>your account is now activeated, you will be redirected to the login page in <span id="countdown"></span></p>
+{% endblock %}
+
+{% block javascript %}
+    <script>
+    let timeleft = 5;
+    let countDown = setInterval(function () {
+        if (timeleft <= 0) {
+            clearInterval(countDown);
+            const url = `${window.location.origin}/auth/login`
+            window.location.replace(url)
+
+        }
+        document.getElementById("countdown").innerHTML = timeleft;
+        timeleft -= 1;
+    }, 1000);
+
+
+    </script>
+{% endblock %}

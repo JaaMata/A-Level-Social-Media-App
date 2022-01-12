@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block head %}
+
+{% endblock %}
+{% block body %}
+    {% if error == 'invalid' %}
+    {% endif %}
+    {% if error == 'active' %}
+    {% endif %}
+    {% if error == 'expired' %}
+        <p>The verification email has expired click <a href="{% url 'resend-verify-email' %}">here</a> to resend one</p>
+    {% endif %}
+
+{% endblock %}
+
+{% block javascript %}
+
+{% endblock %}
